@@ -1,0 +1,36 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content' style='top:{{StatusBar}}px;'>老王工具箱</view>
+  </view>
+</view>
+
+<basics wx:if="{{PageCur=='basics'}}"></basics>
+<component wx:if="{{PageCur=='component'}}"></component>
+<plugin wx:if="{{PageCur=='plugin'}}"></plugin>
+<about wx:if="{{PageCur=='about'}}"></about>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="basics1">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/basics{{PageCur=='basics'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">工具</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="component1">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/component{{PageCur=='component'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='component'?'text-green':'text-gray'}}">家庭</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="plugin1">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/plugin{{PageCur=='plugin'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='plugin'?'text-green':'text-gray'}}">扩展</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="about1">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">关于</view>
+  </view>
+</view>
