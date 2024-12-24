@@ -6,11 +6,10 @@
     <view class='content' style='top:{{StatusBar}}px;'>每日食谱</view>
   </view>
 </view>
-<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{4}}" wx:key>
-    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg" mode='aspectFill'></image>
-  </swiper-item>
-</swiper>
+<view class="cu-bar bg-white bottom">
+</view>
+<view class="cu-bar bg-white bottom">
+</view>
 <view class="VerticalBox">
   <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
     <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
@@ -23,15 +22,15 @@
         <view class='action'>
           <text class='cuIcon-title text-green'></text> {{item.name}} </view>
       </view>
-      <view class="cu-list menu-avatar" wx:for="{{item.foods}}" wx:for-item="fooditem" wx:key  id="foodmain-{{food-index}}">
+      <view class="cu-list menu-avatar" wx:for="{{item.items}}" wx:for-item="fooditem" wx:key  id="foodmain-{{food-index}}">
         <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{item.img}});"></view>
+          <view class="cu-avatar round lg" style="background-image:url({{item.image}});"></view>
           <view class="content">
             <view class="text-grey">{{fooditem.name}}</view>
           </view>
           <view class="action">
-            <switch data-foodname="{{fooditem.name}}"
-            data-img="{{item.img}}"  bindchange="gridswitch"></switch>
+            <switch data-foodid = "{{fooditem.id}}" data-foodname="{{fooditem.name}}"
+            data-img="{{item.image}}"  bindchange="gridswitch"></switch>
           </view>
         </view>
       </view>
@@ -51,7 +50,7 @@
 <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white">
-      <view class="action text-green">确定</view>
+      <view class="action text-green" bindtap="submitFood">确定</view>
       <view class="action text-blue" bindtap="hideModal">取消</view>
     </view>
     <!-- <view class="padding-xl">
